@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1"
+    />
+    <meta name="theme-color" content="#121d2a" />
+    <title>Dribble Streets — First touch</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <a class="brand" href="./"
+          >DS<span>DRIBBLE<br />STREETS</span></a
+        >
+        <div class="edition">FIRST TOUCH <span> / </span> PLAYABLE 01</div>
+        <button id="pause" aria-label="Pause game">Ⅱ</button>
+      </header>
+      <main>
+        <section class="intro">
+          <span class="eyebrow">THE STREET IS YOUR PITCH.</span>
+          <h1>Find your feet.<br /><em>Make your move.</em></h1>
+          <p>
+            A ball. A block. Endless possibilities.<br />Keep your touch, beat
+            the crowd, find your flow.
+          </p>
+          <div class="legend">
+            <span><i class="mint"></i> STYLE BUILDS FLOW</span
+            ><span><i class="orange"></i> TROUBLE BUILDS HEAT</span>
+          </div>
+        </section>
+        <section class="arena">
+          <div class="hud">
+            <div><small>SCORE</small><strong id="score">000000</strong></div>
+            <div class="flow">
+              <small>FLOW</small><strong id="flow">×1</strong>
+              <div class="meter"><i id="flowbar"></i></div>
+            </div>
+            <div><small>BEST</small><strong id="best">000000</strong></div>
+          </div>
+          <div id="game"></div>
+          <div id="overlay">
+            <span class="eyebrow" id="overlay-kicker"
+              >WELCOME TO THE BLOCK</span
+            >
+            <h2 id="overlay-title">Your first touch.</h2>
+            <p id="overlay-copy">
+              Move freely. Cut past cones. Nutmeg a pedestrian.<br />Don’t let
+              the street catch you standing still.
+            </p>
+            <button id="start">LET’S PLAY <span>↗</span></button
+            ><small>ARROWS / A D TO MOVE · SPACE TO SPIN</small>
+          </div>
+          <div class="run-status">
+            <span id="distance">0 m</span
+            ><span id="message">CALM STREETS. BIG POSSIBILITIES.</span
+            ><span id="health">● ● ●</span>
+          </div>
+          <div id="touch">
+            <button data-hold="left">◀</button
+            ><button data-hold="right">▶</button
+            ><button data-skill="cut">CUT</button
+            ><button data-skill="spin">SPIN</button
+            ><button data-skill="nutmeg">MEG</button
+            ><button data-skill="wall">WALL</button>
+          </div>
+        </section>
+        <aside>
+          <div class="control-title">THE PLAYBOOK <span>01 — 04</span></div>
+          <div class="move">
+            <kbd>SHIFT</kbd>
+            <div>
+              <h3>Sharp cut</h3>
+              <p>Hold a direction. Change the conversation.</p>
+            </div>
+          </div>
+          <div class="move">
+            <kbd>SPACE</kbd>
+            <div>
+              <h3>Roulette</h3>
+              <p>Spin through pedestrians and cones.</p>
+            </div>
+          </div>
+          <div class="move">
+            <kbd>E</kbd>
+            <div>
+              <h3>Nutmeg</h3>
+              <p>Line up a pedestrian, then thread the gap.</p>
+            </div>
+          </div>
+          <div class="move">
+            <kbd>Q</kbd>
+            <div>
+              <h3>Wall pass</h3>
+              <p>Get close to either wall. Play it back.</p>
+            </div>
+          </div>
+          <div class="note">
+            <span>✦</span>
+            <p>Mix your moves.<br />Repetition won’t make you a legend.</p>
+          </div>
+        </aside>
+      </main>
+      <footer>
+        <span>NO LANES. JUST INSTINCT.</span
+        ><span>ORIGINAL STREET FOOTBALL · PROTOTYPE</span
+        ><span>MOVE <b>← →</b> &nbsp; PAUSE <b>P</b></span>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

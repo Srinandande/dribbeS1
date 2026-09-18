@@ -1,36 +1,25 @@
 # Development milestones
 
-## 1 — Core feel
-- [ ] Initialize Phaser, TypeScript and Vite; lock dependency versions.
-- [ ] Establish elevated pseudo-3D perspective.
-- [ ] Continuous progression and smooth lateral motion across road and sidewalk.
-- [ ] Visible ball touches and original placeholder player art.
-- [ ] Keyboard input and restart.
+## Completed — First Touch browser prototype
+- [x] Phaser, TypeScript and Vite with locked dependencies.
+- [x] Elevated pseudo-3D world projection.
+- [x] Continuous progression and unrestricted lateral motion.
+- [x] Visible dribbling and original geometric placeholder artwork.
+- [x] Streamed street, pedestrians, cones, ground hazards and parked vehicles.
+- [x] Collision slowdown, score, Flow and restart.
+- [x] Sharp cut, roulette, contextual nutmeg and wall pass.
+- [x] Repetition penalty and event-triggered pedestrian chase.
+- [x] Keyboard and touch actions, pause and local best score.
+- [x] Focused simulation tests and production type-check/build.
 
-Acceptance: movement and the ball remain readable at normal speed; no lane snapping.
+## Next — Playtest and refine
+- [ ] Real-device touch and frame-rate testing.
+- [ ] Tune collision widths, skill timing and difficulty from player feedback.
+- [ ] Add animation frames and sound feedback.
+- [ ] Add contextual hints with skill cooldown visualization on desktop.
+- [ ] Make Hype reactions distinct from Flow; expand NPC reactions.
 
-## 2 — Playable street
-- [ ] Repeating street chunks with bounded entity counts.
-- [ ] Pedestrians, cones, a ground hazard and parked vehicles.
-- [ ] Collision slowdowns and recovery.
-- [ ] Score, run end and restart loop.
-
-Acceptance: several minutes of play without unbounded spawning or unavoidable obstacle walls.
-
-## 3 — Dribble identity
-- [ ] Sharp cut or feint.
-- [ ] Roulette/spin.
-- [ ] Contextual nutmeg.
-- [ ] Contextual wall pass if feasible.
-- [ ] Flow rewards with repetition penalty.
-- [ ] One event-triggered annoyed pedestrian chase.
-
-Acceptance: successful skills require timing/position, variety earns more than spam, and runs begin without a chaser.
-
-## 4 — Mobile and Android
-- [ ] Touch controls through the shared action map.
-- [ ] Responsive layout and device performance checks.
-- [ ] Capacitor Android project and debug APK.
-- [ ] Device testing of input, pause/resume, audio and offline assets.
-
-After each meaningful change: build/type-check, exercise affected gameplay manually, and add focused logic tests where they protect collision or scoring behavior.
+## Later — Android
+- [ ] Capacitor Android project with permanent application ID.
+- [ ] Debug APK and device testing of pause/resume, audio and offline assets.
+- [ ] Private release signing and distribution preparation.

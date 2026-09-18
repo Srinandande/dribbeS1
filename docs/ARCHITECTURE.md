@@ -31,3 +31,9 @@ Status: proposed; validate against the first playable prototype.
 6. Build a debug APK for testing; configure private signing credentials for a release APK. Never commit signing keys or passwords.
 
 Android tooling versions must follow the Capacitor version selected at implementation time. APK packaging is not implemented in this planning export.
+
+## Implemented in First Touch
+
+Phaser 3.90, TypeScript 5.9 and Vite 6 are pinned in the lockfile. A dependency-free `Run` model owns movement, collisions, skills, scoring and chase state; Phaser Graphics draws the projection and original shapes. The initial renderer uses geometry rather than external textures, keeping the prototype asset-independent. Skill moves are configured through `MOVES` with separate contextual handlers. A richer animation system can replace drawing without changing the model.
+
+The initial ball is visually animated; it is not a free rigid-body simulation. This favors readable dribbling and predictable skill timing. Touch input is included early through the same action calls. No Android platform files or signing credentials are committed.

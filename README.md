@@ -1,41 +1,57 @@
-# Dribble Streets
+# Dribble Streets — First Touch
 
 A street-sports runner where you don't just dodge the world — you dribble through it.
 
-## Status
+## Play locally
 
-Project planning export. The original game brief is preserved in `docs/GAME_BRIEF.md`. No playable game or Android APK is included yet.
-
-## Proposed stack
-
-- Phaser + TypeScript for a browser-first 2D game.
-- Vite for development and static production builds.
-- Capacitor for Android packaging after the browser prototype is playable.
-- Android Studio, Android SDK and compatible JDK for APK builds.
-
-The elevated behind-player view will be simulated with sprite positioning, scaling and depth sorting. Phaser does not provide a true 3D camera. Validate this perspective with player and ball movement before building out the street.
-
-## First milestone
-
-One character, one football, one street, continuous forward travel, unrestricted lateral movement, visible dribbling, keyboard input and restart. Then add hazards, skill interactions, Flow scoring and one event-triggered chase.
-
-See `docs/ROADMAP.md`, `docs/ARCHITECTURE.md` and `BACKLOG.md`.
-
-## Repository
-
-https://github.com/Srinandande/dribbeS1
-
-Clone the project:
+Use Node.js 22.18+ (or Node.js 24) and npm:
 
 ```sh
-git clone https://github.com/Srinandande/dribbeS1.git
-cd dribbeS1
+npm ci
+npm run dev
 ```
 
-This repository currently contains the project brief and development plan. Game implementation is the next milestone.
+Open the URL printed by Vite. Run `npm run build` for a static production build in `dist/`, `npm run preview` to serve that build, and `npm test` for gameplay logic tests.
 
-## Tooling and plugins
+For a single HTML file that opens directly in a desktop browser, run `npm run standalone` and open `dist/Dribble-Streets.html`.
 
-The GitHub ChatGPT integration is useful for repository work. Phaser, Vite, TypeScript and Capacitor are project dependencies, not ChatGPT plugins. No Figma, Canva, Base44 or paid hosting integration is required for the prototype.
+## Validation
 
-References: https://docs.phaser.io/phaser/getting-started/what-is-phaser and https://capacitorjs.com/docs/android
+The production build/type-check and six simulation tests pass. Automated visual/input browser checks could not run because Chromium could not launch in the build environment; real browser playtesting remains required. GitHub Actions repeats the logic tests and production build on pushes and pull requests.
+
+## Controls
+
+| Action | Keyboard |
+| --- | --- |
+| Move freely | Left/right arrows or A/D |
+| Sharp cut | Hold a direction + Shift |
+| Roulette/spin | Space |
+| Nutmeg | E, aligned with a nearby pedestrian |
+| Wall pass | Q, near either edge |
+| Pause/resume | P or pause button |
+| Start/restart | Onscreen button or Enter |
+
+Touch buttons appear on mobile. Three collisions end the run; hits briefly slow you down. Spin beats cones and pedestrians, but cannot pass through parked cars or ground hazards. Mix successful skills to build Flow. A nutmegged pedestrian starts a chase; clean running lets you escape. Empty spins do not earn points. Best score is stored on the current device where browser storage is available.
+
+## Implemented
+
+- Phaser 3, TypeScript and Vite, using original geometric pixel-style art.
+- Elevated pseudo-3D projection with unrestricted road/sidewalk movement.
+- Visible dribbling, four skills, contextual timing, cooldowns and repetition penalties.
+- Streamed street scenery, pedestrians, cones, parked cars and manholes.
+- Collision recovery, score/Flow, event-triggered chase, game over and restart.
+- Responsive page, touch input and automatic pause on lost focus.
+
+## Architecture
+
+`src/model.ts` contains the testable world simulation and skill configuration. `src/main.ts` handles Phaser rendering and input. `src/style.css` and `index.html` provide the responsive shell. World positions and collisions are independent of the perspective projection. Entity counts stay bounded as the street streams past.
+
+## Known prototype limits
+
+No sound, authored sprite animations, friendly give-and-go NPCs or full crowd behavior yet. The ball's skill animation is visual; contact outcomes are evaluated by the world simulation. Hype is represented by Flow and successful skill count; richer Hype reactions remain deferred. Chase behavior is intentionally simple. Android packaging and real-device performance testing are still pending.
+
+## Android next
+
+After playtesting, add Capacitor with `dist` as its web directory, choose a permanent application ID, generate the Android project, and test it in Android Studio. Touch controls already share the keyboard action interface. No APK is claimed or included in this milestone.
+
+Original requirements: `docs/GAME_BRIEF.md`. Architecture: `docs/ARCHITECTURE.md`. Deferred scope: `BACKLOG.md`.

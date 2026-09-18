@@ -1,0 +1,379 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #e8ebe6;
+  background: #101923;
+  font-synthesis: none;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  font: inherit;
+  cursor: pointer;
+}
+#app {
+  max-width: 1600px;
+  margin: auto;
+  padding: 0 44px;
+}
+header {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #30404a;
+  gap: 22px;
+}
+.brand {
+  color: #b9f174;
+  text-decoration: none;
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: -5px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.brand span {
+  font-size: 12px;
+  letter-spacing: 1.3px;
+  color: #e8ebe6;
+  line-height: 1.2;
+}
+.edition {
+  margin-left: auto;
+  font: 10px monospace;
+  letter-spacing: 2px;
+  color: #9ba9b3;
+}
+.edition span {
+  color: #b9f174;
+  margin: 0 10px;
+}
+#pause {
+  background: none;
+  border: 1px solid #52606a;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+main {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) minmax(400px, 570px) minmax(
+      200px,
+      1fr
+    );
+  gap: 38px;
+  align-items: center;
+  padding: 38px 0;
+}
+.eyebrow {
+  font: 10px monospace;
+  letter-spacing: 2px;
+  color: #b9f174;
+}
+h1 {
+  font-size: clamp(32px, 3.3vw, 52px);
+  line-height: 1.04;
+  letter-spacing: -2px;
+  margin: 25px 0;
+}
+h1 em {
+  color: #b9f174;
+  font-style: normal;
+}
+.intro p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #99a8b3;
+}
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 40px;
+  font: 9px monospace;
+  letter-spacing: 1px;
+}
+.legend i {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.mint {
+  background: #b9f174;
+}
+.orange {
+  background: #ff9e6b;
+}
+.arena {
+  position: relative;
+  border: 1px solid #465559;
+  box-shadow: 0 24px 70px #0005;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #233b47;
+}
+.hud {
+  height: 74px;
+  background: #17242a;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 24px;
+  text-align: center;
+}
+.hud small {
+  display: block;
+  font: 9px monospace;
+  letter-spacing: 2px;
+  color: #90a1a8;
+  margin-bottom: 5px;
+}
+.hud strong {
+  font: 22px monospace;
+  font-weight: bold;
+}
+.flow strong {
+  color: #b9f174;
+}
+.meter {
+  width: 68px;
+  height: 3px;
+  background: #35454c;
+  margin-top: 5px;
+}
+.meter i {
+  display: block;
+  height: 100%;
+  background: #b9f174;
+  width: 0;
+}
+#game {
+  width: 100%;
+  aspect-ratio: 540/610;
+  line-height: 0;
+}
+canvas {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+#overlay {
+  position: absolute;
+  inset: 74px 0 35px;
+  background: linear-gradient(#10202b44, #10202bdf);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 25px;
+}
+#overlay.hidden {
+  display: none;
+}
+#overlay h2 {
+  font-size: 38px;
+  letter-spacing: -1.4px;
+  margin: 18px 0;
+}
+#overlay p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #d3dcd9;
+}
+#start {
+  background: #b9f174;
+  color: #152222;
+  border: 0;
+  padding: 18px 24px;
+  min-width: 220px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin: 20px 0;
+}
+#start span {
+  float: right;
+}
+#overlay small {
+  font: 8px monospace;
+  letter-spacing: 1px;
+  color: #bcc9c9;
+}
+.run-status {
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #17242a;
+  padding: 0 14px;
+  font: 9px monospace;
+  color: #b6c2c2;
+  gap: 10px;
+}
+#message {
+  text-align: center;
+  font-size: 8px;
+  color: #b9f174;
+}
+#health {
+  color: #ffad80;
+  white-space: nowrap;
+}
+.control-title {
+  font: 10px monospace;
+  letter-spacing: 1.5px;
+  margin-bottom: 28px;
+  color: #b9f174;
+}
+.control-title span {
+  color: #6a7e8b;
+  float: right;
+}
+.move {
+  display: flex;
+  gap: 16px;
+  border-bottom: 1px solid #2b3b47;
+  padding: 19px 0;
+}
+.move kbd {
+  min-width: 48px;
+  height: 30px;
+  border: 1px solid #52616d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 9px monospace;
+  border-radius: 4px;
+  color: #c0cec9;
+}
+.move h3 {
+  font-size: 13px;
+  margin: 0 0 8px;
+}
+.move p {
+  font-size: 11px;
+  line-height: 1.6;
+  color: #8296a6;
+  margin: 0;
+}
+.note {
+  display: flex;
+  gap: 14px;
+  color: #b9f174;
+  margin-top: 30px;
+  align-items: center;
+}
+.note span {
+  font-size: 28px;
+}
+.note p {
+  font-size: 11px;
+  line-height: 1.6;
+  color: #9eafb8;
+}
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  border-top: 1px solid #30404a;
+  padding: 22px 0;
+  font: 9px monospace;
+  letter-spacing: 1px;
+  color: #718593;
+}
+footer b {
+  color: #dae4dc;
+}
+#touch {
+  display: none;
+  background: #17242a;
+  padding: 8px;
+  gap: 6px;
+  touch-action: none;
+}
+#touch button {
+  flex: 1;
+  padding: 14px 0;
+  background: #293c45;
+  border: 1px solid #50666c;
+  color: #d6ecb5;
+  border-radius: 5px;
+  font-size: 10px;
+  touch-action: none;
+}
+@media (max-width: 1100px) {
+  #app {
+    padding: 0 22px;
+  }
+  main {
+    grid-template-columns: 1fr 1.7fr;
+    gap: 25px;
+  }
+  aside {
+    display: none;
+  }
+  h1 {
+    font-size: 42px;
+  }
+}
+@media (max-width: 700px) {
+  #app {
+    padding: 0 12px;
+  }
+  header {
+    height: 65px;
+  }
+  .brand {
+    font-size: 30px;
+  }
+  .brand span {
+    font-size: 9px;
+  }
+  .edition {
+    font-size: 8px;
+    letter-spacing: 0;
+  }
+  main {
+    display: block;
+    padding: 15px 0;
+  }
+  .intro {
+    display: none;
+  }
+  .arena {
+    max-width: 510px;
+    margin: auto;
+  }
+  .hud {
+    height: 60px;
+    padding: 10px 20px;
+  }
+  #overlay {
+    inset: 60px 0 91px;
+  }
+  #touch {
+    display: flex;
+  }
+  footer {
+    font-size: 7px;
+  }
+  footer span:nth-child(2) {
+    display: none;
+  }
+}
+@media (pointer: coarse) {
+  #touch {
+    display: flex;
+  }
+}
